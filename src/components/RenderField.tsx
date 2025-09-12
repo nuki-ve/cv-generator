@@ -10,25 +10,37 @@ type Props = {
   sectionIndex: number
 }
 
+/**
+ * @description Renders the input corresponding to the type supplied in the field prop
+ */
 export default function RenderField({ field, register, fieldIndex, sectionIndex }: Props) {
-  const registration = register(`sections.${sectionIndex}.fields.${fieldIndex}.${field.role}`)
+  /**"name" with which the input will be registered */
+  const name = `sections.${sectionIndex}.fields.${fieldIndex}.${field.role}` as const
+
   switch(field.type) {
     case 'textarea':
-      return <textarea {...registration} role={field.role}></textarea>;
+      return <textarea {...register(name)} role={field.role}></textarea>;
+
     case 'month':
-      return <>
-        <select {...register(`sections.${sectionIndex}.fields.${fieldIndex}.${field.role}-month`)} role={`${field.role}-month`} >
-          {months.map(([idx, month]) => <option value={idx} key={idx}>{month}</option>)}
-        </select>
-        <select {...register(`sections.${sectionIndex}.fields.${fieldIndex}.${field.role}-year`)} role={`${field.role}-year`} >
-          {hundredYears.map(year => <option value={year} key={year}>{year}</option>)}
-        </select>
-      </>;
+      return (
+        <>
+          <select  {...register(`${name}-month`)} role={`${field.role}-month`} >
+            {months.map(([idx, month]) => <option value={idx} key={idx}>{month}</option>)}
+          </select>
+          <select {...register(`${name}-year`)} role={`${field.role}-year`} >
+            {hundredYears.map(year => <option value={year} key={year}>{year}</option>)}
+          </select>
+        </>
+      );
+
     case 'select':
-      return <select {...registration} role={`${field.role}`} >
-        {field.answers!.map(answer => <option value={answer} key={answer}>{answer}</option>)}
-      </select>
+      return (
+        <select {...register(name)} role={`${field.role}`} >
+          {field.answers!.map(answer => <option value={answer} key={answer}>{answer}</option>)}
+        </select>
+      );
+
     default:
-      return <input {...registration} type={field.type} role={field.role} />;
+      return <input {...register(name)} type={field.type} role={field.role} />;
   }
 }

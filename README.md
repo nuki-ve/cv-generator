@@ -1,43 +1,13 @@
-# Astro Starter Kit: Minimal
+# online CV generator (work in progress)
 
-```sh
-pnpm create astro@latest -- --template minimal
-```
+## A web app to create and customize professional CVs with ease, using pre-designed templates and a user-friendly interface.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This project is an online, totally free, realtime, custom CV generator. Add all the data you want, choose a template and download it instantly. 
 
-## 🚀 Project Structure
+No fees, no paywalls, no ads.
 
-Inside of your Astro project, you'll see the following folders and files:
+*The design and functionality is inspired on CVwizard*
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+*<sup>The project is in "alpha" state!!!</sup>*
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+<img src='./imgs/cv-generator mock.png' alt='web app diagram'>

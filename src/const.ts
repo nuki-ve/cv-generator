@@ -1,41 +1,42 @@
 import type { FormSectionTemplate } from "@/types"
 
+/** Used to render the CVSection components */
 export const sectionTemplates:FormSectionTemplate[] = [
   {
     type: 'personal',
-    placeholder: 'Datos Personales',
+    placeholder: 'Personal Details',
     fields: [
-      {role: 'first-name', type: 'text', title: 'First Name'},
-      {role: 'last-name', type: 'text', title: 'Last Name'},
-      {role: 'email', type: 'text', title: 'Email'},
-      {role: 'birth-date', type: 'date', title: 'Birth Date'}
+      {role: 'first-name', type: 'text', label: 'First Name'},
+      {role: 'last-name', type: 'text', label: 'Last Name'},
+      {role: 'email', type: 'text', label: 'Email'},
+      {role: 'birth-date', type: 'date', label: 'Birth Date'}
     ]
   },
   {
     type: 'description',
-    placeholder: 'Perfil',
+    placeholder: 'Profile',
     fields: [
-      {role: 'profile', type: 'textarea', title: 'Profile'}
+      {role: 'profile', type: 'textarea', label: 'Profile'}
     ]
   },
   {
     type: 'inscription',
-    placeholder: 'Inscripción',
+    placeholder: 'Education',
     fields: [
-      {role: 'education', type: 'text', title: 'Education'},
-      {role: 'school', type: 'text', title: 'School'},
-      {role: 'city', type: 'text', title: 'City'},
-      {role: 'start-date', type: 'month', title: 'Start Date'},
-      {role: 'finish-date', type: 'month', title: 'Finish Date'},
-      {role: 'description', type: 'textarea', title: 'Description'}
+      {role: 'education', type: 'text', label: 'Education'},
+      {role: 'school', type: 'text', label: 'School'},
+      {role: 'city', type: 'text', label: 'City'},
+      {role: 'start-date', type: 'month', label: 'Start Date'},
+      {role: 'finish-date', type: 'month', label: 'Finish Date'},
+      {role: 'description', type: 'textarea', label: 'Description'}
     ]
   },
   {
     type: 'skills',
-    placeholder: 'Competencias',
+    placeholder: 'Skills',
     fields: [
-      {role: 'skill', type: 'text', title: 'Skill'},
-      {role: 'level', type: 'select', title: 'Level', answers: [
+      {role: 'skill', type: 'text', label: 'Skill'},
+      {role: 'level', type: 'select', label: 'Level', answers: [
         'Beginner',
         'Professional'
       ]}
@@ -43,13 +44,23 @@ export const sectionTemplates:FormSectionTemplate[] = [
   },
   {
     type: 'list',
-    placeholder: 'Lista',
+    placeholder: 'List',
     fields: [
-      {role: 'list-item', type: 'text', title: 'Item'}
+      {role: 'list-item', type: 'text', label: 'Item'}
     ]
   }
-]
+] as const
 
+/**
+ * A list with the months
+ * 
+ * @description Each item its a 2 item array,
+ * the first is the month number,
+ * the second one is the month name
+ * 
+ * @example // Usage
+ * months.map( ([monthNumber, month]) => {...} )
+ */
 export const months = [
   [1, 'January'],
   [2, 'February'],

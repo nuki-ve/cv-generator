@@ -25,6 +25,7 @@ export default function CVForm({onSubmit=(_:FieldValues) => {}}) {
     <form role="cv-form" onSubmit={handleSubmit((data) => onSubmit(data))}>
       {sections.map((section, index) => {
         const template = sectionTemplates.find(t => t.type === section.type)
+
         return (
           <fieldset key={section.id}>
             <CVSection 
@@ -37,12 +38,15 @@ export default function CVForm({onSubmit=(_:FieldValues) => {}}) {
           </fieldset>
         )
       })}
+
       <button type="button" onClick={appendSection('personal')} role="append-section">append personal</button>
       <button type="button" onClick={appendSection('description')} role="append-profile-section">append profile</button>
       <button type="button" onClick={appendSection('inscription')} role="append-inscription-section">append inscription</button>
       <button type="button" onClick={appendSection('skills')} role="append-skills-section">append skills</button>
       <button type="button" onClick={appendSection('list')} role="append-list-section">append list</button>
+      
       <input type="submit" role="submit"/>
+      
       <pre>{JSON.stringify(watch(), null, 2)}</pre>
     </form>
   )

@@ -1,13 +1,12 @@
-export type FormFieldType = 'textarea' | 'select' | 'month' | HTMLInputElement['type']
+export type FormFieldType = 'textarea' | 'select' | 'month' | 'text' | 'date' 
 export type WhenCheckProp = 'disable' | null
 
 export type FormField = {
   role: string
   type: FormFieldType
-  title: string
+  label: string
   answers?: string[]
 }
-
 
 export type SectionType = 'personal' | 'skills' | 'inscription' | 'list' | 'description'
 
