@@ -6,10 +6,27 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest"
   },
   "dependencies": {
-    "astro": "^5.13.5"
+    "@astrojs/react": "4.3.0",
+    "@types/react": "19.1.12",
+    "@types/react-dom": "19.1.9",
+    "astro": "5.13.5",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "react-hook-form": "7.62.0"
   },
-  "packageManager": "pnpm@9.5.0"
+  "packageManager": "pnpm@9.5.0",
+  "devDependencies": {
+    "@testing-library/react": "16.3.0",
+    "happy-dom": "18.0.1",
+    "ts-standard": "12.0.2",
+    "vitest": "3.2.4",
+    "zod": "4.1.7"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/ts-standard/eslintrc.json"
+  }
 }
