@@ -1,9 +1,21 @@
 import { useFieldArray, useForm, type FieldValues } from "react-hook-form"
-import CVSection from "@/components/CVSection"
+import FormSection from "@/components/FormSection"
 import { sectionTemplates } from "@/const"
-import type { CVFormResult, FieldSlot, FormResultFields, FormResultSection, FormSectionTemplate, SectionType } from "@/types"
+import { atom } from 'nanostores'
+import type { 
+  CVFormResult, 
+  FieldSlot, 
+  FormResultFields,
+  FormResultSection, 
+  FormSectionTemplate, 
+  SectionType 
+} from "@/types"
 
-export default function CVForm({onSubmit=(_:FieldValues) => {}}) {
+export const formStore = atom<CVFormResult>({
+  sections: []
+})
+
+export default function Form({onSubmit=(_:FieldValues) => {}}) {
   const {handleSubmit, control, watch, register} = useForm<CVFormResult>({
   })
 
@@ -21,6 +33,8 @@ export default function CVForm({onSubmit=(_:FieldValues) => {}}) {
     })
   }
 
+  formStore.set(watch())
+
   return (
     <form role="cv-form" onSubmit={handleSubmit((data) => onSubmit(data))}>
       {sections.map((section, index) => {
@@ -28,7 +42,7 @@ export default function CVForm({onSubmit=(_:FieldValues) => {}}) {
 
         return (
           <fieldset key={section.id}>
-            <CVSection 
+            <FormSection 
               register={register} 
               sectionRemove={remove} 
               index={index} 
@@ -45,13 +59,13 @@ export default function CVForm({onSubmit=(_:FieldValues) => {}}) {
       <button type="button" onClick={appendSection('skills')} role="append-skills-section">append skills</button>
       <button type="button" onClick={appendSection('list')} role="append-list-section">append list</button>
       
-      <input type="submit" role="submit"/>
+      {/* <input type="submit" role="submit"/> */}
       
       {/* <pre>{JSON.stringify(watch(), null, 2)}</pre> */}
 
-      {watch().sections?.map((section, index) => (
+      {/* {watch().sections?.map((section, index) => (
         <ResultSection data={section} key={index}/>
-      ))}
+      ))} */}
     </form>
   )
 }

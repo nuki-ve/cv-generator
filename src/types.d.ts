@@ -1,9 +1,9 @@
 export type FormFieldType = 'textarea' | 'select' | 'month' | 'text' | 'date' 
 export type WhenCheckProp = 'disable' | null
 
-export type FieldSlot = 'a' | 'b' | 'c' | 'd' | 'start-date' | 'finish-date'
+export type FieldSlot = 'a' | 'b' | 'c' | 'd' | 'start-date' | 'finish-date' | 'level'
 
-export type FormField = {
+export type FormFieldTemplate = {
   role: string
   type: FormFieldType
   label: string

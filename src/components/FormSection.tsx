@@ -1,6 +1,6 @@
 import { useFieldArray } from "react-hook-form"
 import type { Control, UseFieldArrayRemove, UseFormRegister } from "react-hook-form"
-import RenderField from "@/components/RenderField"
+import FormField from "@/components/FormField"
 import type { CVFormResult, FormSectionTemplate } from "@/types"
 
 type Props = {
@@ -49,7 +49,7 @@ export default function CVSection({template, sectionRemove, register, index, con
             <label key={`${field.id}-${idx}`}>
               <span>{fieldTemplate.label}</span>
 
-              <RenderField 
+              <FormField 
                 field={fieldTemplate} 
                 fieldIndex={fieldIndex} 
                 sectionIndex={index} 

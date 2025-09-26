@@ -1,7 +1,7 @@
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import * as z from 'zod'
-import CVForm from "../src/components/CVForm";
+import CVForm from "../src/components/Form";
 import type { CVFormResult } from "../src/types";
 
 const sectionSchema = z.object({

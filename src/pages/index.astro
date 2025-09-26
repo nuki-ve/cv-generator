@@ -1,5 +1,5 @@
 ---
-import CVForm from "@/components/CVForm.tsx";
+import App from "@/components/App";
 ---
 
 <html lang="en">
@@ -11,6 +11,19 @@ import CVForm from "@/components/CVForm.tsx";
 	</head>
 	<body>
 		<h1>CV generator (work in progress)</h1>
-		<CVForm client:idle />
+		<App client:idle />
 	</body>
 </html>
+
+<style lang='less' is:global>
+.page {
+	// display: flex;
+	// align-items: center;
+	// justify-content: center;
+	background-color: #fff;
+	// font-size: 16px;
+	// color: #666;
+	border: 1px solid #ccc;
+	padding: 1em;
+}
+</style>

@@ -1,10 +1,10 @@
 import type { UseFormRegister } from "react-hook-form";
 import { months } from "@/const";
 import { hundredYears } from "@/utils";
-import type { CVFormResult, FormField } from "@/types";
+import type { CVFormResult, FormFieldTemplate } from "@/types";
 
 type Props = {
-  field: FormField,
+  field: FormFieldTemplate,
   register: UseFormRegister<CVFormResult>
   fieldIndex: number
   sectionIndex: number
@@ -13,7 +13,7 @@ type Props = {
 /**
  * @description Renders the input corresponding to the type supplied in the field prop
  */
-export default function RenderField({ field, register, fieldIndex, sectionIndex }: Props) {
+export default function FormField({ field, register, fieldIndex, sectionIndex }: Props) {
   /**"name" with which the input will be registered */
   const name = `sections.${sectionIndex}.fields.${fieldIndex}.${field.role}` as const
 
