@@ -24,3 +24,6 @@ export const getYears = () => {
  * {hundredYears.map(...)} // Less heavy
  */
 export const hundredYears = getYears()
+
+export const toPascalCase = (s:string) => s.replace(/(\w)(\w*)/g,
+        function(_,g1,g2){return g1.toUpperCase() + g2.toLowerCase();});
