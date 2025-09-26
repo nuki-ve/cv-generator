@@ -143,6 +143,7 @@ function CVPersonalSection({data}:{data:FormResultSection}) {
           </>
         ))}
       </section>
+      <br />
     </>
   )
 }
